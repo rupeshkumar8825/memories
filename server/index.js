@@ -12,3 +12,4 @@ console.log("hi from the developer side for this purpose \n");
 
 
 // lets add some comment just for tracking purpose for this purpose 
+console.log("now we are good to go to develop the memories app for this purpose ")
