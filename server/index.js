@@ -1,6 +1,6 @@
 import express from "express"
 import bodyParser from "body-parser"
-import mongoose, { mongo } from "mongoose"
+import mongoose from "mongoose"
 import cors from 'cors'
 import postRoutes from "./routes/posts.js";
 
@@ -19,7 +19,7 @@ app.use(bodyParser.urlencoded({limit : "30mb", extended : true}))
 app.use(cors());
 
 // now we have to add the connection url for the hosted database over the cloud in the mongodb 
-const CONNECTION_URL = 'mongodb+srv://rupeshadmin:rupeshadmin123@cluster0.o49kxye.mongodb.net/?retryWrites=true&w=majority';
+const CONNECTION_URL = 'mongodb+srv://rupeshadmin:rupeshadmin123@cluster0.o49kxye.mongodb.net/?retryWrites=true&w=majority'
 
 const PORT = process.env.PORT || 5000;
 
