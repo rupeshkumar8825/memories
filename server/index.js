@@ -1,15 +1,27 @@
-// const express = require("express");
-// import { Express } from "express";
-import pkg from 'express';
-const { Express } = pkg;
-
-import bodyParser from "body-parser";
-import mongoose from "mongoose";
-import cors from "cors";
+import express from "express"
+import bodyParser from "body-parser"
+import mongoose, { mongo } from "mongoose"
+import cors from 'cors'
 
 
-console.log("hi from the developer side for this purpose \n");
+const app = express();
+
+// setting the body parser so that we can properly send the request for this purpose to the application 
+app.use(bodyParser.json({limit : "30mb", extended : true}));
+app.use(bodyParser.urlencoded({limit : "30mb", extended : true}))
+app.use(cors());
+
+// now we have to add the connection url for the hosted database over the cloud in the mongodb 
+const CONNECTION_URL = 'mongodb+srv://rupeshadmin:rupeshadmin123@cluster0.o49kxye.mongodb.net/?retryWrites=true&w=majority';
+
+const PORT = process.env.PORT || 5000;
+
+// connecting to the database 
+mongoose.connect(CONNECTION_URL, {useNewUrlParser : true, useUnifiedTopology : true}).then(()=> app.listen(PORT, ()=> console.log(`server running on port ${PORT}`))).catch((error)=> console.log(error.message));
 
 
-// lets add some comment just for tracking purpose for this purpose 
-console.log("now we are good to go to develop the memories app for this purpose ")
+// mongoose.set('useFindAndModify', false);
+
+
+
+
