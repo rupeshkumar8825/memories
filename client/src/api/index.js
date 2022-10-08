@@ -10,4 +10,10 @@ export const fetchPosts = ()=> {
     return axios.get(url);
 }
 
+
+// defining the api to create a new post
+export const createPost = ()=>{
+    return axios.post(url);
+
+}
 // say everything went fine 
