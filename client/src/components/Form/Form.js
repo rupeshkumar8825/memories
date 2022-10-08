@@ -4,11 +4,15 @@ import useStyles from "./styles.js"
 import { TextField, Button, Typography, Paper } from "@material-ui/core";
 import { useState } from "react";
 import FileBase from 'react-file-base64'
+import { useDispatch } from "react-redux";
+import { createPost } from "../../api/index.js";
 
 
 // defining the form component 
 export const Form = ()=>{
+
     const classes = useStyles();
+    const dispatch = useDispatch();
 
 
     // defining the state to store the post data for this purpose 
@@ -20,15 +24,18 @@ export const Form = ()=>{
         selectedFile : ""
     });
 
-    // defining the handler for handling the submit from the form 
-    const handleSubmit = ()=>{
+
+    const handleSubmit = (e)=>{
         console.log("The user has submitted the new post to store it to the db for this purpose\n");
+        e.preventDefault();
+
+        dispatch(createPost(postData));
 
         // say everything went fine 
         return;
     }
 
-    // defining the handler to clear the form 
+
     const clear = ()=>{
         console.log("The user has cleared the entries for this case\n");
 

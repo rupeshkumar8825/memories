@@ -21,7 +21,7 @@ export const createPost = (newPost)=> async(dispatch) =>{
         const {data} = await api.createPost(newPost);
 
         // dispatch the action to udpate the post array value 
-        dispatch({type : 'CREATE', payload : newPost});
+        dispatch({type : 'CREATE', payload : data});
     } catch (error) {
         
     }
