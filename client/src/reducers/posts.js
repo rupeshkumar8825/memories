@@ -13,4 +13,4 @@ const reducer = (posts = [], action)=>{
 }
 
 // exporting this reducer to be used outside 
-export default reducer
+export default reducer;
