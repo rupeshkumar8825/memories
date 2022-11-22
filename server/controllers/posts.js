@@ -1,4 +1,5 @@
 // in this all the handlers related to the posts will be done or the business logic will be written in this file itself 
+// in this file we have define the actual api endpoints to handle the endpoints related to the posts 
 import PostMessage from "../models/postMessage.js";
 
 
@@ -8,9 +9,12 @@ import PostMessage from "../models/postMessage.js";
 export const getPosts = async (req, res)=>{
     // res.send("This works");
     try {
+
+        // since fetching all the post from the database will require some amount of time hence we have to use async and await functionality for this purpose 
         const postMessages = await PostMessage.find();
         console.log(postMessages);
 
+        // now sending the json successfull message 
         res.status(200).json(postMessages);
     } catch (error) {
         res.status(400).json({message : error.message})

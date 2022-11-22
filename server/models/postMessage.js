@@ -2,7 +2,7 @@
 import mongoose from "mongoose";
 
 
-// we have to create a schema 
+// we have to create a schema using the mongoose.Schema
 const postSchema = mongoose.Schema({
     title : String, 
     message : String, 
@@ -23,5 +23,4 @@ const PostMessage = mongoose.model('PostMessage', postSchema);
 
 
 // now we are exporting this model which will be used to the store the post message for this purpose 
-
 export default PostMessage;

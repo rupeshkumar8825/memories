@@ -12,9 +12,8 @@ app.use(bodyParser.json({limit : "30mb", extended : true}));
 app.use(bodyParser.urlencoded({limit : "30mb", extended : true}))
 app.use(cors());
 
-// now we have to use the middleware to connect the routes to the applications. 
-// this route the urls to the proper routes in the router folder and then from there the handlers will be called 
-// this will make the server more scalable for this purpose 
+
+// acting as the middleware to route the apis to the postroutes 
 app.use('/posts', postRoutes);
 
 
