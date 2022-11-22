@@ -13,6 +13,7 @@ export const fetchPosts = ()=> {
 
 // defining the api to create a new post
 export const createPost = (newPost)=>{
+    console.log("Made the post reques to the server with the new post as given below \n", newPost);
     return axios.post(url, newPost);
 
 }

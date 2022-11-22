@@ -38,7 +38,12 @@ export const Form = ()=>{
 
     const clear = ()=>{
         console.log("The user has cleared the entries for this case\n");
-
+        // we will have to set the value of the postdata as empty 
+        setPostData({creator : "", 
+        title : "", 
+        message : "", 
+        tags : "", 
+        selectedFile : ""});
         // say everything went fine 
         return;
     }
