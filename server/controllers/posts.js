@@ -1,5 +1,6 @@
 // in this all the handlers related to the posts will be done or the business logic will be written in this file itself 
 // in this file we have define the actual api endpoints to handle the endpoints related to the posts 
+import mongoose from "mongoose";
 import PostMessage from "../models/postMessage.js";
 
 
@@ -41,6 +42,31 @@ export const createPost = async (req, res) =>{
 
         res.status(400).json({message : error.message});
     }
-    // res.send("Created a post successfully\n");
 
 }
+
+// defining the function to update the post as well 
+// we are using the patch end point 
+export const updatePost = ("/:id", (req, res)=>{
+
+    const currUserId = req.params.id;
+
+    console.log("The user that has made the request to edit the post is as follows \n", currUserId);
+
+    const newPost = req.body;
+
+    if(!mongoose.Types.ObjectId.isValid(currUserId))
+    {
+        // then this is invalid id and hence we will not be able to process this request 
+        res.status(404).send("No post with this id");
+    }
+
+    // else we have to update the current post with the post information being taken from the frontend 
+    const updatedPost = PostMessage.findByIdAndUpdate(currUserId, updatePost, {new:true});
+
+
+
+    // say everything went fine 
+    res.status(201).json(updatedPost);
+
+});
