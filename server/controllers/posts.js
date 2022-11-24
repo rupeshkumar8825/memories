@@ -27,11 +27,11 @@ export const getPosts = async (req, res)=>{
 export const createPost = async (req, res) =>{
     // creating the new post to be saved in the database 
     const post = req.body;
-    console.log("The post that i got is as follows \n");
-    console.log(post);
+    // console.log("The post that i got is as follows \n");
+    // console.log(post);
     const newPost = new PostMessage(post);
-    console.log("The new post value after creating post message is \n");
-    console.log(newPost);
+    // console.log("The new post value after creating post message is \n");
+    // console.log(newPost);
 
     try {
         // saving this new post in db 

@@ -11,9 +11,8 @@ export const Post = (props)=>{
     const classes = useStyles();
     return (
         <>
-            <Card className="{classes.card}">
-                <CardMedia className={classes.media} image={props.post.selectedFile} title = {props.post.title}>
-                </CardMedia>
+            <Card className={classes.card}>
+                <CardMedia className={classes.media} image={props.post.selectedFile} title = {props.post.title}/>
                 
                 <div className={classes.overlay}>
                     <Typography variant = "h6"> {props.post.creator} </Typography>
@@ -21,7 +20,7 @@ export const Post = (props)=>{
                 </div>
 
                 <div className={classes.overlay2}>
-                    <Button style={{color : "white" }} size = "small" onClick={() => {}}>
+                    <Button style={{color : "white" }} size = "small" onClick={() => {console.log("The user has pressed to update the memory card for this purpose")}}>
                         <MoreHorizIcon fontSize = "default"/>
                     </Button>
                 </div>
@@ -32,7 +31,7 @@ export const Post = (props)=>{
 
 
                 <CardContent>
-                    <Typography className={classes.title} variant = "h5" color = "gutterBottom"> {props.post.message}</Typography>
+                    <Typography className={classes.title} variant = "h5" color = "primary"> {props.post.message}</Typography>
 
                 </CardContent>
 
@@ -46,7 +45,6 @@ export const Post = (props)=>{
                     <Button size = "small" color = "primary" onClick={() => {}}>
                         <DeleteIcon fontSize = "small"></DeleteIcon>
                         Delete 
-                        {props.post.likeCount}
                     </Button>
                 </CardActions>
 
