@@ -17,4 +17,18 @@ export const createPost = (newPost)=>{
     return axios.post(url, newPost);
 
 }
+
+// defining the patch end point to update the current post 
+export const updatePost = async (currentId, postData)=>{
+    console.log("Made the patch request to update the content of the current post\n");
+
+    // this will return the response back to the action that we have dispatch to update the post details 
+    // in the response it will send the udpated post message 
+    console.log("The current id of the post is ", currentId);
+    console.log("The current url that is hit is ", url + `${currentId}`);
+    const response = await axios.patch(url+`/${currentId}`, postData);
+    console.log("The received response from the server side is as follows\n", response);
+    return response;
+
+}
 // say everything went fine 

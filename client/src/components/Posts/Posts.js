@@ -7,7 +7,7 @@ import { Grid, CircularProgress } from "@material-ui/core";
 // import posts from "../../reducers/posts.js"
 
 // defining the posts components 
-export const Posts = ()=>{
+export const Posts = (props)=>{
     const classes = useStyles();
 
     // now here we have to take the list of the posts stored in the store for this purpose 
@@ -32,7 +32,7 @@ export const Posts = ()=>{
                 {/* we have to loop over the posts list */}
                 {posts.map((post) => (
                     <Grid key={post._id} item xs={12} sm={6}>
-                        <Post post = {post}></Post>
+                        <Post post = {post} setCurrentId = {props.setCurrentId}></Post>
                     </Grid>
                 ))}
 

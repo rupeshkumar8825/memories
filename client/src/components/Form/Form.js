@@ -5,11 +5,11 @@ import { TextField, Button, Typography, Paper } from "@material-ui/core";
 import { useState } from "react";
 import FileBase from 'react-file-base64'
 import { useDispatch } from "react-redux";
-import { createPost } from "../../api/index.js";
+import { createPost, updatePost } from "../../api/index.js";
 
 
 // defining the form component 
-export const Form = ()=>{
+export const Form = (props)=>{
 
     const classes = useStyles();
     const dispatch = useDispatch();
@@ -29,7 +29,17 @@ export const Form = ()=>{
         console.log("The user has submitted the new post to store it to the db for this purpose\n");
         e.preventDefault();
 
-        dispatch(createPost(postData));
+        if(props.currentId)
+        {
+            // we have to dispatch the update option for this post 
+            dispatch(updatePost(props.currentId, postData));
+            
+        }
+        else
+        {
+            // then we have to create the new post in the database 
+            dispatch(createPost(postData));
+        }
 
         // say everything went fine 
         return;

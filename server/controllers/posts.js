@@ -47,7 +47,7 @@ export const createPost = async (req, res) =>{
 
 // defining the function to update the post as well 
 // we are using the patch end point 
-export const updatePost = ("/:id", (req, res)=>{
+export const updatePost =  ("/:id", async(req, res)=>{
 
     const currUserId = req.params.id;
 
@@ -62,9 +62,9 @@ export const updatePost = ("/:id", (req, res)=>{
     }
 
     // else we have to update the current post with the post information being taken from the frontend 
-    const updatedPost = PostMessage.findByIdAndUpdate(currUserId, updatePost, {new:true});
+    const updatedPost = await PostMessage.findByIdAndUpdate(currUserId, newPost, {new:true});
 
-
+    console.log("The updated post is as follows \n", updatedPost);
 
     // say everything went fine 
     res.status(201).json(updatedPost);

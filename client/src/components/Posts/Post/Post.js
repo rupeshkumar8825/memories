@@ -20,7 +20,7 @@ export const Post = (props)=>{
                 </div>
 
                 <div className={classes.overlay2}>
-                    <Button style={{color : "white" }} size = "small" onClick={() => {console.log("The user has pressed to update the memory card for this purpose")}}>
+                    <Button style={{color : "white" }} size = "small" onClick={() => {props.setCurrentId(props.post._id)}}>
                         <MoreHorizIcon fontSize = "default"/>
                     </Button>
                 </div>
