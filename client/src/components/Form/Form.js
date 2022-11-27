@@ -4,8 +4,9 @@ import useStyles from "./styles.js"
 import { TextField, Button, Typography, Paper } from "@material-ui/core";
 import { useState } from "react";
 import FileBase from 'react-file-base64'
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { createPost, updatePost } from "../../api/index.js";
+import { useEffect } from "react";
 
 
 // defining the form component 
@@ -24,7 +25,8 @@ export const Form = (props)=>{
         selectedFile : ""
     });
 
-
+    // we have to fetch the value of the post corresponding to the id using the use selector for this purpose 
+    const post = useSelector((state) => props.currentId ? state.posts.find((p) => p._id == props.currentId) :null);
     const handleSubmit = (e)=>{
         console.log("The user has submitted the new post to store it to the db for this purpose\n");
         e.preventDefault();
@@ -58,6 +60,25 @@ export const Form = (props)=>{
         return;
     }
 
+
+    // we have to render the form whenever the user selects the three dot 
+    // we have to use the useeffect for this purpose 
+    useEffect(() => {
+        console.log("The current id has been changed inside the form useeffect");
+        if(props.currentId)
+        {
+            // we have  to set the value of the current postdata 
+            setPostData({creator : post.creator, 
+            title : post.title, 
+            message : post.message, 
+            tags : post.tags, 
+            selectedFile : post.selectedFile});
+
+        }
+        return () => {
+            
+        };
+    }, [props.currentId]);
 
     return (
         <>

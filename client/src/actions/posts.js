@@ -42,7 +42,7 @@ export const updatePost = (currentId, postData) => async(dispatch)=>{
 
         // once we get the response from the server about the update we have to dispatch a new action to 
         // update the list of the posts 
-        // dispatch({type : 'UPDATE', payload : data});
+        dispatch({type : 'UPDATE', payload : data});
     } catch (error) {
         
     }

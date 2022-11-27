@@ -4,6 +4,7 @@ import mongoose from "mongoose";
 
 // we have to create a schema using the mongoose.Schema
 const postSchema = mongoose.Schema({
+    creator : String,
     title : String, 
     message : String, 
     tags : [String],

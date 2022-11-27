@@ -9,6 +9,18 @@ import moment from "moment";
 // defining the post component
 export const Post = (props)=>{
     const classes = useStyles();
+
+    // defining the handler for the onclick event on the three dots 
+    const handleOnClickOnThreeDots = ()=>{
+        console.log("The user wants to update the post \n");
+        // we have to set the current id as this post id 
+        props.setCurrentId(props.post._id);
+        // and we also have to fill the form with the content of this post 
+        // say everything went fine 
+        return;
+
+        
+    }
     return (
         <>
             <Card className={classes.card}>
@@ -20,7 +32,7 @@ export const Post = (props)=>{
                 </div>
 
                 <div className={classes.overlay2}>
-                    <Button style={{color : "white" }} size = "small" onClick={() => {props.setCurrentId(props.post._id)}}>
+                    <Button style={{color : "white" }} size = "small" onClick={handleOnClickOnThreeDots}>
                         <MoreHorizIcon fontSize = "default"/>
                     </Button>
                 </div>
