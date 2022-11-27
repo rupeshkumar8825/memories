@@ -33,3 +33,18 @@ export const createPost = (newPost)=> async(dispatch) =>{
         
     }
 }
+
+// we have to define the action for updating the post 
+// in this we will call the updatePost api to the apis folder 
+export const updatePost = (currentId, postData) => async(dispatch)=>{
+    try {
+        console.log("came inside the update action for this purpose for testing purpose for this purpose\n");
+        const {data} = await api.updateThePost(currentId, postData);
+
+        // once we get the response from the server about the update we have to dispatch a new action to 
+        // update the list of the posts 
+        dispatch({type : 'UPDATE', payload : data});
+    } catch (error) {
+        
+    }
+}
