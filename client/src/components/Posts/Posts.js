@@ -28,7 +28,7 @@ export const Posts = (props)=>{
     {
         // we have to show the grid of the posts in order to show all the post that is stored in the database 
         return (
-            <Grid className="{classes.container}" container alignItems="stretch" spacing ={3}>
+            <Grid className={classes.container} container alignItems="stretch" spacing ={3}>
                 {/* we have to loop over the posts list */}
                 {posts.map((post) => (
                     <Grid key={post._id} item xs={12} sm={6}>

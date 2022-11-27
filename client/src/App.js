@@ -23,8 +23,9 @@ function App() {
 
 	// using the useeffect to store the list 
 	useEffect(() => {
+		console.log("The App has re rendered\n");
 		dispatch(getPosts());
-	}, [dispatch]);
+	}, [currentId, dispatch]);
 
 	return (
 

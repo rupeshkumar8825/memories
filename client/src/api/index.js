@@ -19,7 +19,7 @@ export const createPost = (newPost)=>{
 }
 
 // defining the patch end point to update the current post 
-export const updatePost = async (currentId, postData)=>{
+export const updateThePost = async (currentId, postData)=>{
     console.log("Made the patch request to update the content of the current post\n");
 
     // this will return the response back to the action that we have dispatch to update the post details 
